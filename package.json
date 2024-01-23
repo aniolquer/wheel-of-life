@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "@wheel-of-life/turborepo",
   "private": true,
   "scripts": {
     "build": "turbo build",
