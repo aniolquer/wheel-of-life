@@ -51,6 +51,11 @@
   resolved "https://registry.npmjs.org/@eslint/js/-/js-8.56.0.tgz"
   integrity sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==
 
+"@heroicons/react@v1":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-1.0.6.tgz#35dd26987228b39ef2316db3b1245c42eb19e324"
+  integrity sha512-JJCXydOFWMDpCP4q13iEplA503MQO3xLoZiKum+955ZCtHINWnx26CUxVxxFQu/uLb4LW3ge15ZpzIkXKkJ8oQ==
+
 "@humanwhocodes/config-array@^0.11.13":
   version "0.11.14"
   resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.11.14.tgz"
@@ -1603,6 +1608,11 @@ hasown@^2.0.0:
   integrity sha512-vUptKVTpIJhcczKBbgnS+RtcuYMB8+oNzPK2/Hp3hanz8JmpATdmmgLgSaadVREkDm+e2giHwY3ZRkyjSIDDFA==
   dependencies:
     function-bind "^1.1.2"
+
+heroicons@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/heroicons/-/heroicons-2.1.1.tgz#b574c2d87bc504bf7f4fefacc20960c5672b0202"
+  integrity sha512-54kHbrxsTyAJJU7z07XN1OrVBX8ogN/tbclP8Doxk0X4IQmR6LEhLzJBkFK9Yc814NoXG6ZJBh9Bi/qvauzjfA==
 
 http-errors@2.0.0:
   version "2.0.0"

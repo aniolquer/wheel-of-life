@@ -22,18 +22,18 @@ export const AddAreaForm = ({ onAddArea }) => {
         placeholder="New Area Name"
         value={newAreaName}
         onChange={handleNewAreaNameChange}
-        className="border border-gray-300"
+        className="border border-gray-300 m-1"
       />
       <input
         type="number"
         placeholder="Rating"
         value={newAreaRating}
         onChange={handleNewAreaRatingChange}
-        className="border border-gray-300"
+        className="border border-gray-300 m-1"
       />
       <button
         onClick={handleSubmit}
-        className="bg-blue-500 text-white px-4 py-2 rounded"
+        className="bg-blue-500 text-white px-4 py-2 rounded m-1"
       >
         Add Area
       </button>
