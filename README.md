@@ -1,53 +1,56 @@
-# Team-Building Marketplace Platform
+# Wheel of Life
 
 ## Overview
-Our project aims to revolutionize the way HR professionals discover and choose team-building activities. With a comprehensive, centralized platform, we streamline the process of comparing and evaluating team-building service providers. This platform, powered by advanced GPT technology, provides instant access to detailed information about various team-building options.
+Our Wheel of Life is designed to help users introspect and assess different areas of their life. Utilizing the "wheel of life" framework, this app enables users to customize their life categories, rate them, and track their evolution over time. This introspective tool is especially useful for those seeking to understand their personal growth and balance across various life aspects.
 
 ## Features
-- **AI-Driven Information Gathering**: Leveraging GPT technology for real-time, detailed insights on team-building activities.
-- **Comprehensive Database**: From adventurous sports like paintball and laser tag to cultural experiences such as the haka.
-- **User-Friendly Interface**: Designed for ease of use, enabling efficient and informed decision-making.
-- **Real-Time Updates**: Constantly updated information on offerings, pricing, and terms from various providers.
+- **Customizing Categories in the Wheel of Life**: Users can tailor the life categories to match their personal interests and priorities.
+- **Quick Rating System**: A user-friendly interface for quickly rating each life area, ensuring a seamless and time-efficient experience.
+- **Graphical Representation of Life Balance**: A visually engaging representation of the user's life balance, making it easy to identify strengths and areas for improvement.
+- **Goal Setting**: Allows users to set specific, measurable goals for each life area, with reminders and deadlines to keep track of progress.
+- **Visual Progress Tracking**: Features graphical progress tracking over different time frames, providing users with tangible evidence of their personal development.
 
 ## Technology Stack
-- Frontend: JavaScript, TypeScript, Next.js
-- Backend: Node.js, Express.js
-- AI Technology: OpenAI API
-- Database: Notion Databases and API
-- Development Tools: Vite.js, Shadcn, Nodemon
-- Networking: HTTP requests
+- **Product Design**: Notion, Figjam, Visily, Figma, Builder.io
+- **Monorepo Tool**: Turborepo
+- **Frontend**: HTML, CSS/Tailwind, JavaScript/TypeScript, React, Next.js, Chart.js, Shadcn
+- **API Development**: RESTful APIs, Postman
+- **Backend**: Express.js, Node.js, Prisma, Nodemon
+- **Database**: PostgreSQL
+- **Repository Management**: Git, GitHub
+- **Deployment**: Vercel
 
 ## Getting Started
-To get started with this project, follow these general steps:
+To get started with Wheel of Life, follow these steps:
 
 **Clone the Repository**
-   ```bash
-   git clone https://github.com/your-repository-link.git
-   cd your-project-directory
+```bash
+git clone https://github.com/your-repository-link.git
+cd life-balance-tracker
+```
 
-Install Dependencies
-
-bash
-Copy code
+**Install Dependencies**
+```bash
 npm install
-Set Up Environment
+```
 
-Configure your environment variables as required.
-Ensure you have API keys for Notion and OpenAI.
-Run the Application
+**Set Up Environment**
+- Set up the necessary environment variables.
+- Ensure you have access to all tools mentioned in the tech stack.
 
-bash
-Copy code
+**Run the Application**
+```bash
 npm start
-How to Use
-After setting up the project, navigate through the platform to explore various team-building activities. Use the AI-driven search feature to find activities that match your criteria.
+```
 
-Contributing
-We welcome contributions to this project. If you have a feature request, bug report, or any other contribution, please reach out or submit a pull request.
+## How to Use
+Navigate through the app to set up and customize your Wheel of Life, rate each life area, view your life balance graphically, set personal goals, and track your progress over time.
 
-License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+## Contributing
+Contributions are welcome! Whether it's a feature request, bug report, or any other form of contribution, please feel free to reach out or submit a pull request.
 
-Contact
-For more information, contact us at aniolquer@gmail.com.
+## License
+This project is licensed under the MIT License.
 
+## Contact
+For more information, please contact at aniolquer@gmail.com.
