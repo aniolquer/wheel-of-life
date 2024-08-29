@@ -17,5 +17,10 @@
   "packageManager": "yarn@1.22.19",
   "workspaces": [
     "apps/*"
-  ]
+  ],
+  "dependencies": {
+    "@stripe/stripe-js": "^4.4.0",
+    "env": "^0.0.2",
+    "stripe": "^16.8.0"
+  }
 }

@@ -3,9 +3,17 @@ import React, { useState, useEffect } from "react";
 import { AreasTable } from "../components/AreasTable";
 import WheelChart from "../components/WheelChart";
 import { AddAreaForm } from "../components/AddAreaForm";
+import Link from "next/link";
+
+// Define the structure for each area in the Wheel of Life
+interface Area {
+  areaName: string;
+  rating: number;
+}
 
 const HomePage = () => {
-  const [areas, setAreas] = useState(() => {
+  // Initialize areas state with localStorage data or default value
+  const [areas, setAreas] = useState<Area[]>(() => {
     const savedAreas = localStorage.getItem("areas");
     return savedAreas
       ? JSON.parse(savedAreas)
@@ -14,35 +22,17 @@ const HomePage = () => {
             areaName: "Family",
             rating: 5,
           },
+          {
+            areaName: "Fitness",
+            rating: 3,
+          },
         ];
   });
 
-  const [editingIndex, setEditingIndex] = useState(null);
+  // State to keep track of which area is being edited
+  const [editingIndex, setEditingIndex] = useState<number | null>(null);
 
-  const handleRatingChange = (index, newRating) => {
-    const updatedAreas = [...areas];
-    updatedAreas[index].rating = newRating;
-    setAreas(updatedAreas);
-  };
-
-  const handleAddArea = (areaName, rating) => {
-    const newArea = { areaName, rating };
-    setAreas([...areas, newArea]);
-  };
-
-  const handleRemoveArea = (index) => {
-    const filteredAreas = areas.filter((_, areaIndex) => areaIndex !== index);
-    setAreas(filteredAreas);
-  };
-
-  const handleEdit = (index) => {
-    setEditingIndex(index);
-  };
-
-  useEffect(() => {
-    localStorage.setItem("areas", JSON.stringify(areas));
-  }, [areas]);
-
+  // Prepare data for the WheelChart component
   const chartData = {
     labels: areas.map((area) => area.areaName),
     datasets: [
@@ -73,31 +63,68 @@ const HomePage = () => {
       },
     ],
   };
+
+  // Handler to add a new area
+  const handleAddArea = (areaName: string, rating: number) => {
+    const newArea: Area = { areaName, rating };
+    setAreas([...areas, newArea]);
+  };
+
+  // Handler to remove an area
+  const handleRemoveArea = (index: number) => {
+    const filteredAreas = areas.filter((_, areaIndex) => areaIndex !== index);
+    setAreas(filteredAreas);
+  };
+
+  // Handler to set an area for editing
+  const handleEdit = (index: number) => {
+    setEditingIndex(index);
+  };
+
+  // Handler to update the rating of an area
+  const handleRatingChange = (index: number, newRating: number) => {
+    const updatedAreas = [...areas];
+    updatedAreas[index].rating = newRating;
+    setAreas(updatedAreas);
+  };
+
+  // Effect to save areas to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("areas", JSON.stringify(areas));
+  }, [areas]);
+
   return (
-    <div className="w-screen flex flex-col items-center justify-center bg-green-100">
-      <h1 className="text-4xl font-bold text-indigo-500 m-8">
-        My Wheel of Life
+    <div className="flex flex-col items-center justify-center space-y-8">
+      <h1 className="text-4xl font-bold text-white mb-8">
+        Create Your Wheel of Life
       </h1>
-      <div className="w-11/12 h-5/6 flex items-center justify-center p-10 border-0 border-yellow-500">
-        <div className="w-[700px] h-[500px] bg-white rounded-md shadow-md mr-20 ml-20 items-center border-0 border-purple-800  ">
-          <div className="10">
-            <AreasTable
-              areas={areas}
-              onRatingChange={handleRatingChange}
-              onRemoveArea={handleRemoveArea}
-              onEdit={handleEdit}
-              editingIndex={editingIndex}
-            />
-          </div>
-          <div className="bg-white rounded-md shadow-md">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
+        {/* Left column: Areas table and Add Area form */}
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <AreasTable
+            areas={areas}
+            onRatingChange={handleRatingChange}
+            onRemoveArea={handleRemoveArea}
+            onEdit={handleEdit}
+            editingIndex={editingIndex}
+          />
+          <div className="mt-6">
             <AddAreaForm onAddArea={handleAddArea} />
           </div>
         </div>
 
-        <div className="w-[700px] h-[700px] bg-white p-6 rounded-lg shadow-lg border-gray-200">
+        {/* Right column: Wheel chart */}
+        <div className="bg-white rounded-lg shadow-lg p-6">
           <WheelChart data={chartData} />
         </div>
       </div>
+      {/* Navigation link back to home */}
+      <Link
+        href="/"
+        className="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition duration-300"
+      >
+        Back to Home
+      </Link>
     </div>
   );
 };

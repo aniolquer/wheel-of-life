@@ -14,7 +14,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`${inter.className} bg-gradient-to-br from-indigo-500 to-purple-600 min-h-screen`}
+      >
+        <div className="container mx-auto px-4 py-8">{children}</div>
+      </body>
     </html>
   );
 }
