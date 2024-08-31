@@ -19,8 +19,13 @@
     "apps/*"
   ],
   "dependencies": {
+    "@stripe/react-stripe-js": "^2.8.0",
     "@stripe/stripe-js": "^4.4.0",
+    "@types/react-slider": "^1.3.6",
+    "chart.js": "^4.4.4",
     "env": "^0.0.2",
+    "react-chartjs-2": "^5.2.0",
+    "react-slider": "^2.0.6",
     "stripe": "^16.8.0"
   }
 }

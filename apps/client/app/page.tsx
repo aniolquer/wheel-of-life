@@ -5,41 +5,19 @@ import Image from "next/image";
 import barGraph from "../public/assets/images/barGraph.png";
 import polarGraph from "../public/assets/images/polarGraph.png";
 import AssessmentsTable from "./components/AssessmentsTable";
+import PurchaseModal from "./components/PurchaseModal";
 import { useRouter } from "next/navigation";
-import { loadStripe } from "@stripe/stripe-js";
 
 const HomePage = () => {
-  const router = useRouter();
+  // State to control the visibility of the purchase modal
   const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
 
+  // Handler for the "Create Assessment" button click
   const handleCreateAssessment = (e: React.MouseEvent) => {
     e.preventDefault();
-    setShowModal(true);
-  };
-
-  const handlePurchase = async () => {
-    try {
-      const response = await fetch("/api/create-checkout-session", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      const { sessionId } = await response.json();
-
-      // Redirect to Stripe Checkout
-      const stripe = await loadStripe(
-        process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
-      );
-      if (stripe) {
-        await stripe.redirectToCheckout({ sessionId });
-      } else {
-        console.error("Stripe failed to load");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+    // setShowModal(true);
+    router.push("/create-wheel-of-life");
   };
 
   return (
@@ -83,28 +61,7 @@ const HomePage = () => {
         <AssessmentsTable />
       </div>
 
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-lg shadow-xl">
-            <h2 className="text-2xl font-bold mb-4">Purchase Assessment</h2>
-            <p className="mb-4">Would you like to purchase an assessment?</p>
-            <div className="flex justify-end space-x-4">
-              <button
-                onClick={() => setShowModal(false)}
-                className="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400 transition duration-300"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handlePurchase}
-                className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition duration-300"
-              >
-                Purchase
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <PurchaseModal isOpen={false} onClose={() => setShowModal(false)} />
     </div>
   );
 };
